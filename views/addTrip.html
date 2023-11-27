@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<h3>Add a New Trip</h3>
+<p>Enter the following information.</p>
+
+<form method='post' action='/addTripData'>
+
+<p><input type='text' name='date'> Trip Date (yyyy-mm-dd) </p>
+<p><input type='text' name='name'> Driver's name </p>
+<p><input type='number' name='miles'> Enter Round-Trip Miles </p>
+<p><input type='number' name='gallons'> Enter Total Gallons </p>
+
+Select Destination City<select name='city'>
+  <option value='1'>Chicago</option>
+  <option value='2'>Cincinnati</option>
+  <option value='3'>Indianapolis</option>
+  <option value='4'>Nashville</option>
+</select>
+
+
+<p><input type='submit'></p>
+
+</form>
+
+{% endblock %}

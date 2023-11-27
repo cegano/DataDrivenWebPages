@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+
+	<title>CIT253 program 5</title>
+	
+        
+<style>
+
+iframe {margin-left: 25px; 
+    width: 720px;
+    height: 405px;
+}
+
+
+html,body{font-family:Verdana,sans-serif;font-size:15px;line-height:1.5}html{overflow-x:hidden}
+h1,h2,h3,h4,h5,h6,.w3-slim,.w3-wide{font-family:"Segoe UI",Arial,sans-serif}
+h1{font-size:36px}h2{font-size:30px}h3{font-size:24px}h4{font-size:20px}h5{font-size:18px}h6{font-size:16px}
+.w3-serif{font-family:"Times New Roman",Times,serif}
+h1,h2,h3,h4,h5,h6{font-weight:400;margin:10px 0}.w3-wide{letter-spacing:4px}
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{font-weight:inherit}
+hr{height:0;border:0;border-top:1px solid #eee;margin:20px 0}
+img{margin-bottom:-5px}a{color:inherit}
+table{border-collapse:collapse;border-spacing:0;width:100%;display:table}
+table,th,td{border:none}.w3-table-all{border:1px solid #ccc}
+.w3-bordered tr,.w3-table-all tr{border-bottom:1px solid #ddd}
+.w3-striped tbody tr:nth-child(even){background-color:#f1f1f1}
+.w3-table-all tr:nth-child(odd){background-color:#fff}
+.w3-table-all tr:nth-child(even){background-color:#f1f1f1}
+.w3-hoverable tbody tr:hover,.w3-ul.w3-hoverable li:hover{background-color:#ccc}
+.w3-centered tr th,.w3-centered tr td{text-align:center}
+.w3-table td,.w3-table th,.w3-table-all td,.w3-table-all th{padding:6px 8px;display:table-cell;text-align:left;vertical-align:top}
+.w3-table th:first-child,.w3-table td:first-child,.w3-table-all th:first-child,.w3-table-all td:first-child{padding-left:16px}
+
+.w3-badge{border-radius:50%}
+ul.w3-ul{list-style-type:none;padding:0;margin:0}
+ul.w3-ul li{padding:6px 2px 6px 16px;border-bottom:1px solid #ddd}
+ul.w3-ul li:last-child{border-bottom:none}
+.w3-tooltip,.w3-display-container{position:relative}
+.w3-fluid{max-width:100%;height:auto}
+.w3-tooltip .w3-text{display:none}
+.w3-tooltip:hover .w3-text{display:inline-block}
+
+
+
+/* .w3-code{font-family:Consolas,"courier new";font-size:16px;line-height:1.4;width:auto;background-color:#fff;padding:8px 12px;border-left:4px solid #009688;word-wrap:break-word} */
+
+.w3-code{font-family:Consolas,"courier new";font-size:16px;line-height:1.4;width:auto;background-color:#fff;padding:10px 12px;border-left:4px solid silver; word-wrap:break-word}
+
+.w3-example,.w3-code,.w3-reference{margin:20px 0}
+.w3-card{border:1px solid #ccc}
+.w3-card-2,.w3-example{box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important}
+.w3-card-4,.w3-hover-shadow:hover{box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)!important}
+.w3-card-8{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)!important}
+.w3-card-12{box-shadow:0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19)!important}
+.w3-card-16{box-shadow:0 16px 24px 0 rgba(0,0,0,0.22),0 25px 55px 0 rgba(0,0,0,0.21)!important}
+.w3-card-24{box-shadow:0 24px 24px 0 rgba(0,0,0,0.2),0 40px 77px 0 rgba(0,0,0,0.22)!important}
+
+
+iframe {margin-left: 25px;}
+.acode { margin-left: 30px; font-size:medium; font-family: Courier New, Courier, monospace; font-weight:500 }
+img {margin-left: 40px;}
+.codeLeft {font-size:medium; font-family: Courier New, Courier, monospace; font-weight:500}
+
+.aaStrings {color: maroon;}
+.aaComments {color: green;}
+.aaKeywords {color: blue;}
+pre {font-family: Consolas, "Lucida Console", Monaco, monospace; background-color:#EEE; padding-left: 20px;} 
+
+@media (min-width: 1200px) {
+  .w3-container {
+    width: 970px;
+  }
+}
+
+/* Base styles (regardless of theme) */
+.bs-callout {
+  margin: 20px 0;
+  padding: 15px 30px 15px 15px;
+  border-left: 5px solid #eee;
+}
+.bs-callout h4 {
+  margin-top: 0;
+}
+.bs-callout p:last-child {
+  margin-bottom: 0;
+}
+.bs-callout code,
+.bs-callout .highlight {
+  background-color: #fff;
+}
+
+/* Themes for different contexts */
+.bs-callout-danger {
+  background-color: #fcf2f2;
+  border-color: #dFb5b4;
+}
+.bs-callout-warning {
+  background-color: #fefbed;
+  border-color: #f1e7bc;
+}
+.bs-callout-info {
+  background-color: #f0f7fd;
+  border-color: #d0e3f0;
+}
+
+.bs-callout-danger h4 {
+color: #B94A48;
+}
+
+.bs-callout-warning h4 {
+color: #C09853;
+}
+
+.bs-callout-info h4 {
+color: #3A87AD;
+}
+
+</style>
+
+
+
+</head><body style="width: 80%; margin: 0 auto;">
+<div class="w3-container">        
+	
+<h2>Programming Project 5 </h2>
+<h4>Node.js, Express, Nunjucks, MongoDB, and Mongoose</h4>
+<p>There are a couple of programs similar to this assignment given in 
+the lecture notes for the week that discusses CRUD operations. 
+Specifically, the Admin example and the CIT300 example both have 
+index.js code and nunjucks code similar to this assignment. You may find
+ some of the other example programs useful as well. It would ultimately 
+save you time if you have already studied these programs before giving 
+this assignment a shot. Either way<em>, </em> hopefully you'll start early and you've kept to the schedule in terms of reading the lecture notes.</p>
+<p>You will need to create a database named<em> travel</em> using compass, then create a collections named <em>trips</em>.
+ Use these names; your code muste work with my database. The trips 
+documents should then be imported unto the trips collection by importing
+ the JSON file containing all the data as linked below. The file itself 
+is named <em>trips.json</em>, and here is the zipped version of the file. You will need to unzip it before importing it into compass.</p>
+<p> &nbsp;&nbsp;<a href="https://alt-5beddfe10b70f.blackboard.com/bbcswebdav/pid-48045707-dt-content-rid-352812471_2/courses/JFC_4226_CIT_253_55Z1_83624/JFC_4226_CIT_253_55Z1_83624_ImportedContent_20230104111505/CIT253programs/trips.zip" title="trips.json">trips.zip</a></p>
+<p>The following video discusses how to get the data and offers an 
+overview of how all this should work. I recommend looking at this video 
+before anything else. </p>
+<p>You don't need to import any data.<em> The <strong>add trip data</strong> option in your program will allow you to add new data one record (document) at a time.</em></p>
+<p><iframe src="CIT253%20program%205_files/NPlR8f673BM.htm" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" width="560" height="315" frameborder="0"></iframe></p>
+<p>The database in the example has 38-ish records, and the first two 
+look like this after being imported into Compass. Note miles per gallon 
+is not a field in the schema, but will be calculated from the miles 
+property divided by the gallons property, calculated as a virtual field.
+ The date, which is stored as a string data type, has a specific format:
+ yyyy-mm-dd. So for February 6th, 2017 it would be 2017-02-06. </p>
+<p><img src="CIT253%20program%205_files/prog5aa.png" width="346" height="309"></p>
+<p>The date property should be unique since is it used as the primary key, and it is of type String, not type Date.</p>
+<h3>Program Interface</h3>
+<p>Here is my default page with my data. We are restricted to only 
+taking trips to four cities: chicago, cincinnati, indianapolis, and 
+nashville. Any drop-down lists you use need to contain these cities only
+ as options. As noted, Miles per Gallon is not a field in the schema, 
+but is calculated from Miles divided by Gallons using a virtual field. 
+Note we have a link in each row that offers the option to edit trip 
+data.</p>
+<p><img src="CIT253%20program%205_files/p5home.JPG" alt="default route" width="877" height="496"></p>
+<p>If you click the Edit link on any of the rows above, it makes a GET 
+request to a route that retrieves the document using the date to select 
+the document. The trick is to have the Edit link contain the info to 
+make the GET request when the page above loads. Something like this as 
+the last row of the template for the above should work, where the date 
+value in the template is the date that was displayed for that row..</p>
+<p class="acode">&lt;td&gt;&lt;a href='/editTrip?tripDate={{variableName.date}}'&gt;Edit&lt;/a&gt;&lt;/td&gt;</p>
+<p>The GET request is made to a route that queries the db and populates 
+and display a template that looks like the following. Initially the 
+textboxes for the miles an gallons are hidden. Clicking the Edit button 
+displays the textbox. In the example shown, the Edit button for miles 
+has been clicked, but the Edit button for Gallons has not. Note the 
+textbox is populated with the correct miles value when it is first 
+displayed. Then user can then change that value as needed. There are 
+examples of how this is done in the program examples upon which this 
+assignment is based.</p>
+<p><img src="CIT253%20program%205_files/p5editTrip.JPG" alt="edit a trip" width="570" height="332"></p>
+
+<p>Clicking the <em>Add Trip Data</em> link in the nav bar opens this 
+page that allows entering a new trip and having that trip information 
+stored in the database with an insert command when the submit button 
+here is clicked. Note the date format.</p>
+<p><img src="CIT253%20program%205_files/prog5addtrip.png" alt="add trip" width="383" height="387"></p>
+<p>I have a result page template that displays any errors or the successful result of an update or insert operation</p>
+<p><img src="CIT253%20program%205_files/p5resultpage.JPG" alt="results page" width="536" height="263"></p>
+<p>Here's an example of the kind of a partial code segment that might send info to the result template.</p>
+<p class="acode">if (err) {<br>
+&nbsp;&nbsp;&nbsp;res.render('resultpage', {result : err});   // send error to result template<br>
+}<br>
+else {<br>
+&nbsp;&nbsp;&nbsp;if (allTrips.length == 0) {  &nbsp;&nbsp;&nbsp;&nbsp;// no trips match the criteria<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.render('resultpage', {result : 'No trip data available.'}); <br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.render('showAll', { trips: allTrips }); <br>
+&nbsp;&nbsp;&nbsp;}<br>
+}</p>
+<p>And, clicking the <em>Get by City</em> link in the nav bar displays a form that allows using a drop-down list to post a city. </p>
+<p><img src="CIT253%20program%205_files/p5bycity.JPG" alt="filter by city" width="571" height="327"></p>
+<p>And once that city is posted to its route in index.js, the route code
+ searches the db, filtering by city, and displays the data in the same 
+template used by the default page. If we chose Cincinnati in the page 
+shown above, we get this result when using the default data set. Again 
+we have the option to edit a trip.</p>
+<p><img src="CIT253%20program%205_files/p5bycity2.JPG" alt="by city results" width="875" height="443"></p>
+<p>In this assignment we'll assume we don't need to delete a trip.</p>
+<p>I don't know if it will help, but here's an image of my views folder. You do not necessarily have to use these names.</p>
+<p><img src="CIT253%20program%205_files/prog5views.png" alt="views folder" width="330" height="212"></p>
+<p>So, for full credit.</p>
+<ul>
+  <li>Use Bootstrap and express, nunjucks, mongoose, and body-parser.<br>
+     &nbsp;&nbsp;&nbsp;<span class="acode">&nbsp;npm install express mongoose nunjucks body-parser --save</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+  <li>Your program should work with my db, meaning the mongoose model 
+must match mine. Your templates do not have to display things precisely 
+like mine, but they should display the same information in a reasonable 
+form.</li>
+  <li>In your model, the db <strong>must</strong> be named <em>travel</em>, the collection must be named <em>trips</em>.</li>
+  <li>We will assume only one trip a day, so the date field must be a String, required, and<em> unique</em>, and use the format yyyy-mm-dd. The date field is how we tell the documents apart.</li>
+  <li>In the model, <em>miles</em> and <em>gallons</em> need to be of 
+type Number, and your model will need a virtual field that calculates 
+and returns the mpg field. No fair storing the mpg value in the db 
+itself.</li>
+  <li>Using my db and your program, I should be able to display all the 
+records with an option to edit each, the edit page should display the 
+data and clicking a button or link should show an initially hidden text 
+box allowing miles and or gallons to be edited and updated in the db, 
+and I should be able to filter the collection by city name with the 
+option to edit.</li>
+</ul>
+<p>This assignment will appear considerably less complex if you have 
+already studied the example programs upon which it is based. Once you 
+look at the example programs you should find this managable. Most of the
+ index.js code you've seen before. And the example programs have 
+nunjucks templates that should be easy to adapt. It is a matter of 
+getting the details straight.</p>
+<h3>Your Data </h3>
+<p>Your program should allow entering documents (records) one at a time.
+ It may help to get that functionality working first. I recommend 
+perfecting one route before writing code for the next one. If you paste 
+code for the whole program in, then test it, it may be that there are 
+multiple errors. It is best to work on one issue at a time.</p>
+<h3>How to Submit This Program</h3>
+<p>When you are finished or if you have trouble, do the following. 
+</p><ul>
+  <li>make a <em>copy</em> of the whole project folder.</li>
+  <li>in the copy, delete the <em>node-modules</em> folder (it's big),<em> but leave the package.json file in the that folder.</em></li>
+  <li>then right-click the folder, choose 'Send to', then choose "Compressed (zipped) folder". </li>
+  <li>attach the zipped folder  to an email and send it to me. </li>
+</ul>
+<p>Let me know if you have questions.	  
+
+  <br>
+</p></div> <!-- end content -->
+
+    
+
+
+
+
+</body></html>

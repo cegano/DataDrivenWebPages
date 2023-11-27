@@ -1,116 +1,133 @@
 var express = require('express');
 var app = express();
 
+nunjucks = require('nunjucks')
+nunjucks.configure('views', {
+    autoescape: true,
+    express: app
+});
+app.set('view engine', 'html');  
+
+
 var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-var Car = require('./modules/Car.js');
-app.use(express.static('public'))
+app.use(express.static('public'))  
 
-app.use('/showAll', function(req, res) {   
-                                             
-    Car.find( function(err, foundCars) {   
-		 if (err) {
-		     res.status(500).send(err);
-		 }
-		 else {
-			 for(var i = 0; i < foundCars.length; i++) {
-				 res.write("<p>" + foundCars[i].cid + " " + foundCars[i].year +  " " + foundCars[i].make + " " + foundCars[i].model + " " + foundCars[i].miles + " " + foundCars[i].price + " " + foundCars[i].dealer_id + "</p>");
-			 }
-			 res.end();  
-		 }
-    });
-})
+var Trip = require('./modules/Trip.js');
 
-app.post('/addCar', function(req, res){ 
-	var newCar = new Car ({               
-		cid: req.body.carCid,
-		year: req.body.carYear,
-		make: req.body.carMake,
-		model: req.body.carModel,
-		miles: req.body.carMiles,
-		price: req.body.carPrice,
-		dealer_id: req.body.carDealer_id,
-	});
 
-	newCar.save( function(err) { 
+app.get('/showAll', function(req, res) {   
+					  
+	Trip.find( function(err, allTrips) {   
 		if (err) {
-		    res.status(500).send(err);
+		    res.render('resultpage', {result : err});   
 		}
 		else {
-		    res.send("Car successfully added.");   
-		}
-   }); 
-});
-
-app.post('/findCar', function(req, res) { 
-	
-	var searchCid = req.body.carCid
-	Car.findOne( {cid: searchCid}, function(err, foundCar) { 
-		if (err) {
-		    res.status(500).send(err);
-		}
-		else if (!foundCar) {
-		    res.send('No car with the ID of ' + searchCid);
-		}
-		else {
-			car = foundCar.cid + ", " + foundCar.year + ", " + foundCar.make + ", " + foundCar.model;
-		    res.send(car);  
+		    if (allTrips.length == 0) {  
+			   res.render('resultpage', {result : 'No Trip Data.'});  
+		    }
+		    else {
+				console.log(allTrips[0])   
+			   	res.render('showAll', { trips: allTrips });  
+		    }
 		}
 	});
-	
-});
-
-
-
-app.post('/updateCar', function(req, res) { 
-	
-	var updateCid = req.body.carCid;
-    var updateMiles = req.body.carMiles;
-    var updatePrice = req.body.carPrice;
     
-    Car.findOne( {cid: updateCid}, function(err, car1) {  
-		if (err) {
-		    res.status(500).send(err);
-		}
-		else if (!car1) {
-		    res.send('No car with the ID of ' + updateCid);
-		}
-		else {
-			car1.miles = updateMiles;
-			car1.price = updatePrice;
+});
+
+app.use('/addTripData', function(req, res){  
+  
+	if(req.method == "GET") {
+		res.render('addTrip', {title: 'add trip'});
+	}
+	else if(req.method == "POST") {
+		city = req.body.city
 		
-			car1.save(function (err) {
-                if(err) {
-                    res.status(500).send(err);
-                }
-            });
-		    res.send("Update successful");
-	   }
-    });        
+	    var newTrip = new Trip({      
+	        date: req.body.date,            
+		    driver: req.body.name,
+			miles: req.body.miles,
+			gallons: req.body.gallons,
+			city: city
+	    });
 
+	    newTrip.save( function(err) {     
+		    if (err) {
+		    	res.render('resultpage', {result : 'Error ' + err});  
+		    }
+		    else {
+		        res.render('resultpage', {title: 'add Trip', result : 'new Trip added'});   
+		    }
+	    }); 
+	
+	}
+	
 });
 
 
-app.post('/deleteCar', function(req, res) {
-	 var deleteCid = req.body.carCid;   
-	 
-	 Car.findOneAndRemove({cid: deleteCid}, function(err, car) { 
-		if (err) {
-		    res.status(500).send(err);
-		}
-		else if (!car) {
-		    res.send('No car with the ID of ' + deleteCid);
-		}
-		else {
-		    res.send("Car: " + deleteCid + " deleted."); 
-		}
-    });         
+app.use('/getByCity', function(req, res) {   
+    if(req.method == "GET") {
+		res.render('getCity', {title: 'city trip list'});
+	}
+	else if(req.method == "POST") {
+		
+		var city = req.body.city;
+	    
+		Trip.find( {city: city}, function(err, allByCity) {  
+			if (err) {
+				res.render('resultpage', {result : err});   
+			}
+			else {
+				if (allByCity.length == 0) {    
+					res.render('resultpage', {result : 'No trips with that city.'});   
+				}
+				else {
+					res.render('showAll', { trips: allByCity });  
+				}
+			}
+		});
+	
+	}
+    
 });
 
 
+app.use('/updateTrip', function(req, res) {   
+	
+	if(req.method == "GET") {
+		res.render('update_trip', {title: 'update trip'});
+	}
+	else {   
+		var miles = req.body.miles;
+		var gallons = req.body.gallons;
+		
+	
+		Trip.findOne( {miles: miles}, function(err, aTrip) {  
+			if (err) {
+				res.render('resultpage', {result : err});   
+			}
+			else if (!aTrip) {
+				res.render('resultpage', {result : 'No trip in that city.'});   
+			}
+			else {
+				aTrip.miles = newMiles;  
+				aTrip.gallons = newGallons;
+				
+				aTrip.save(function (err) {    
+					if(err) {
+						res.render('resultpage', {result : err});   
+					}
+				});
+				var msg = "Trip data updated for city: " + city;
+				res.render('resultPage', { result : msg });
+		   }
+	  });  
+	}
+	  
+});
 
-
+					  
 
 app.listen(3000,  function() {
 	console.log('Listening on port 3000, ctrl-c to quit');

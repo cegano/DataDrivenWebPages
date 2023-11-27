@@ -1,0 +1,40 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<p>Trip Date: {{t.date}}</p>
+
+<form method='post' action='/updateTrip'>
+<input type='hidden' name='date' value={{t.date}}>
+<table cellspacing="16">
+
+	<tr><td>City</td><td>{{t.city}}</td> <td>-</td></tr>
+	
+	<tr><td>Miles</td><td>{{t.miles}}</td><td> <button type='button' id='mi_button'>Edit</button> <span id='miInput' style="display:none"> <input name='newMiles' value={{t.miles}} size='6'> Enter new value</span></td></tr>
+	
+	<tr><td>Gallons</td><td>{{t.gallons}}</td><td> <button type='button' id='gal_button'>Edit</button> <span id='galInput' style="display:none"> <input name='newGallons' value={{ t.gallons}} size='6'>Enter new value</span></td></tr>
+	
+</table>
+<p><input type='submit'></p>
+</form>
+
+<script>
+
+document.getElementById('mi_button').onclick = function() {
+	if(document.getElementById('miInput').style.display=='none')
+		document.getElementById('miInput').style.display='inline'
+		else
+			document.getElementById('miInput).style.display='none'
+};
+
+document.getElementById('gal_button').onclick = function() {
+	if(document.getElementById('galInput').style.display=='none')
+		document.getElementById('galInput').style.display='inline'
+		else
+			document.getElementById('galInput).style.display='none'
+};
+
+</script>
+
+
+{% endblock %}

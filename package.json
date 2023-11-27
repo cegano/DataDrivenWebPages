@@ -1,5 +1,5 @@
 {
-  "name": "program4",
+  "name": "program5",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -9,10 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body": "^5.1.0",
+    "body-parser": "^1.20.2",
     "express": "^4.18.2",
-    "mongoose": "^6.5.0",
-    "parser": "^0.1.4"
+    "mongoose": "^5.13.17",
+    "nunjucks": "^3.2.3"
   },
   "description": ""
 }

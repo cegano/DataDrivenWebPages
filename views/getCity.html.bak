@@ -1,0 +1,19 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<!-- called by get by major link in nav bar -->
+<h3>Get List of Trips by City</h3>
+<p>Use the select list to filter trips by city.</p>
+
+<form method='post' action='/getByCity'>
+Select Destination City<select name='city'>
+  <option>Chicago</option>
+  <option>Cincinnati</option>
+  <option>Indianapolis</option>
+  <option>Nashville</option>
+</select>
+<p><input type='submit'></p>
+</form>
+
+{% endblock %}
