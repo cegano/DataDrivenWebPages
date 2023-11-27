@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html><head>
+<title>Trip Info</title> <meta charset="utf-8">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+</script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
+</script>
+
+<script type="text/javascript"> 
+  
+var trips = [
+	{destination: 'Chicago', miles: 329, gallons: 10.6},
+	{destination: 'St. Louis', miles: 284, gallons: 10.5},
+	{destination: 'Indianapolis', miles: 122, gallons: 3.7},
+	{destination: 'Nashville', miles: 191, gallons: 6.4},
+	{destination: 'Cincinnati', miles: 132, gallons: 3.9}
+];
+
+window.onload = function() {
+	document.getElementById('showTable').onclick = function() {
+	tbl = document.getElementById("tripTable");
+	
+		for (i = 0; i < trips.length; i++) {
+			var mpg = (parseFloat(trips[i].miles) / parseFloat(trips[i].gallons)).toFixed(1);
+		
+			var row = document.createElement("tr");
+			var rowText = "<td>" + trips[i].destination + "</td>";
+			rowText += "<td>" + trips[i].miles + "</td>";
+			rowText += "<td>" + trips[i].gallons + "</td><td>" + mpg + "</td>";
+			row.innerHTML = rowText;
+			tbl.appendChild(row);
+		}
+	};
+};
+</script>
+</head><body>
+
+	<div class="container">
+		<h1>Trip Data</h1>
+		
+		<form>
+			<button type="button" class="btn btn-primary" id="showTable">Click for Trip Table</button>
+		</form><br>
+		
+		<table id='tripTable' class="table table-bordered table-striped">
+			<tr><th>Destination</th><th>Miles</th><th>Gallons</th><th>MPG</th></tr>
+		</table>
+	</div>
+</body></html>
+	

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8">
+
+	<title>program assignment 2</title>
+    
+	
+<style>
+
+html,body{font-family:Verdana,sans-serif;font-size:15px;line-height:1.5}html{overflow-x:hidden}
+h1,h2,h3,h4,h5,h6,.w3-slim,.w3-wide{font-family:"Segoe UI",Arial,sans-serif}
+h1{font-size:36px}h2{font-size:30px}h3{font-size:24px}h4{font-size:20px}h5{font-size:18px}h6{font-size:16px}
+.w3-serif{font-family:"Times New Roman",Times,serif}
+h1,h2,h3,h4,h5,h6{font-weight:400;margin:10px 0}.w3-wide{letter-spacing:4px}
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{font-weight:inherit}
+hr{height:0;border:0;border-top:1px solid #eee;margin:20px 0}
+img{margin-bottom:-5px}a{color:inherit}
+table{border-collapse:collapse;border-spacing:0;width:100%;display:table}
+table,th,td{border:none}.w3-table-all{border:1px solid #ccc}
+.w3-bordered tr,.w3-table-all tr{border-bottom:1px solid #ddd}
+.w3-striped tbody tr:nth-child(even){background-color:#f1f1f1}
+.w3-table-all tr:nth-child(odd){background-color:#fff}
+.w3-table-all tr:nth-child(even){background-color:#f1f1f1}
+.w3-hoverable tbody tr:hover,.w3-ul.w3-hoverable li:hover{background-color:#ccc}
+.w3-centered tr th,.w3-centered tr td{text-align:center}
+.w3-table td,.w3-table th,.w3-table-all td,.w3-table-all th{padding:6px 8px;display:table-cell;text-align:left;vertical-align:top}
+.w3-table th:first-child,.w3-table td:first-child,.w3-table-all th:first-child,.w3-table-all td:first-child{padding-left:16px}
+
+.w3-badge{border-radius:50%}
+ul.w3-ul{list-style-type:none;padding:0;margin:0}
+ul.w3-ul li{padding:6px 2px 6px 16px;border-bottom:1px solid #ddd}
+ul.w3-ul li:last-child{border-bottom:none}
+.w3-tooltip,.w3-display-container{position:relative}
+.w3-fluid{max-width:100%;height:auto}
+.w3-tooltip .w3-text{display:none}
+.w3-tooltip:hover .w3-text{display:inline-block}
+
+
+
+/* .w3-code{font-family:Consolas,"courier new";font-size:16px;line-height:1.4;width:auto;background-color:#fff;padding:8px 12px;border-left:4px solid #009688;word-wrap:break-word} */
+
+.w3-code{font-family:Consolas,"courier new";font-size:16px;line-height:1.4;width:auto;background-color:#fff;padding:10px 12px;border-left:4px solid silver; word-wrap:break-word}
+
+.w3-example,.w3-code,.w3-reference{margin:20px 0}
+.w3-card{border:1px solid #ccc}
+.w3-card-2,.w3-example{box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important}
+.w3-card-4,.w3-hover-shadow:hover{box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)!important}
+.w3-card-8{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)!important}
+.w3-card-12{box-shadow:0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19)!important}
+.w3-card-16{box-shadow:0 16px 24px 0 rgba(0,0,0,0.22),0 25px 55px 0 rgba(0,0,0,0.21)!important}
+.w3-card-24{box-shadow:0 24px 24px 0 rgba(0,0,0,0.2),0 40px 77px 0 rgba(0,0,0,0.22)!important}
+
+
+iframe {margin-left: 25px;}
+.acode { margin-left: 30px; font-size:medium; font-family: Courier New, Courier, monospace; font-weight:500 }
+img {margin-left: 40px;}
+.codeLeft {font-size:medium; font-family: Courier New, Courier, monospace; font-weight:500}
+
+.aaStrings {color: maroon;}
+.aaComments {color: green;}
+.aaKeywords {color: blue;}
+pre {font-family: Consolas, "Lucida Console", Monaco, monospace; background-color:#EEE; padding-left: 20px;} 
+
+@media (min-width: 1200px) {
+  .w3-container {
+    width: 970px;
+  }
+}
+
+/* Base styles (regardless of theme) */
+.bs-callout {
+  margin: 20px 0;
+  padding: 15px 30px 15px 15px;
+  border-left: 5px solid #eee;
+}
+.bs-callout h4 {
+  margin-top: 0;
+}
+.bs-callout p:last-child {
+  margin-bottom: 0;
+}
+.bs-callout code,
+.bs-callout .highlight {
+  background-color: #fff;
+}
+
+/* Themes for different contexts */
+.bs-callout-danger {
+  background-color: #fcf2f2;
+  border-color: #dFb5b4;
+}
+.bs-callout-warning {
+  background-color: #fefbed;
+  border-color: #f1e7bc;
+}
+.bs-callout-info {
+  background-color: #f0f7fd;
+  border-color: #d0e3f0;
+}
+
+.bs-callout-danger h4 {
+color: #B94A48;
+}
+
+.bs-callout-warning h4 {
+color: #C09853;
+}
+
+.bs-callout-info h4 {
+color: #3A87AD;
+}
+
+
+.blue { color: #00F}
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(128,128,128); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(204,120,50); font-weight: bold; }
+.s3 { color: rgb(204,120,50); }
+.s4 { color: rgb(104,151,187); }
+.s5 { color: rgb(165,194,97); }
+.s6 { color: rgb(165,194,97);}
+.w3-example1 {margin:20px 0}
+</style>
+    
+    
+</head>
+
+<body style="width: 80%; margin: 0 auto;">
+<div class="w3-container">
+
+<h2>Programming Project 2 : Repetition</h2>
+<p>Before looking at this assignment, please give the following video, 
+which gives advice on how to learn to program, a good, long, look. </p>
+<p>
+  <iframe src="program%20assignment%202_files/FNU1cw4Z9j0.htm" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" width="560" height="315" frameborder="0"></iframe>
+</p>
+<h3>Assignment</h3>
+<p>Write a program that allows the user to enter a series of exam 
+scores. The number of scores the user can enter is not fixed; they can 
+enter any number of scores they want. The exam scores can be either 
+integers or floats. Then, once the user has entered all the scores they 
+want, your program will calculate and print the average of those scores.
+ After printing the average, the program should terminate.</p>
+<p>You need to use a while loop to allow the user to enter numbers, one 
+at a time, until some numeric sentinel value is entered. I recommend 
+having a sentinel like 9999, something unlikely to be confused with an 
+exam score. If the user enters a score &lt; 0 or &gt; 100 that is not 
+the sentinel value then that score is to be rejected. Each time a legit 
+score is entered, however, it should  be added (appended) to a list. </p>
+<p>Once the user has entered all the numbers they want,  calculate and 
+display the average of the scores rounded to 1 decimal place.</p>
+<p><em>To get full credit</em>, you need to do the following.</p>
+<ul>
+  <li>Use a while-loop to allow the user to enter any number of exam scores, one number per line, until a sentinel value is entered.</li>
+  <li>Legitimate exam scores should become part of the calculation; 
+bogus scores should be rejected. If a bogus score is entered, offer the 
+user a message asking them to reenter a number..</li>
+  <li>Once all scores have been entered, calculate the average of the 
+scores in any way you see fit. Rounded to 1 decimal place. Once the 
+while loop has ended, then print the number of scores and the score 
+average.</li>
+  <li>Put your name in a comment near the top of the program file. </li>
+  <li>Have the output statement give the number of scores averaged as well as the average itself.</li>
+</ul>
+<p>Here is a possible  program run using four scores. The sentinel value
+ here is 9999. You may choose your own wording for the prompt string and
+ output string.</p>
+<p><img src="program%20assignment%202_files/prog2output.GIF" alt="program 2 sample output" width="618" height="362"></p>
+<p>If the user enters a bogus score, your output should look similar this.</p>
+<p><img src="program%20assignment%202_files/prog2output2.GIF" alt="sample output" width="589" height="370"></p>
+<p>If you get good and stuck email me you code and we'll get it working.</p>
+<h3>How To Submit Your Program</h3>
+<p>When you're finished put the program in a new folder and name that 
+folder using  your name and project number. For example the folder might
+ be named <span class="codeLeft">AJSmith-prog1</span>.<strong> <em>Please put your name on the folder as well as having your name in a comment in the file itself.</em></strong>
+ I get lots of programs; putting your name on the folder help keep 
+things organized and shortens the amount of time it takes to get things 
+graded. </p>
+<p>After creating the folder, Zip (compress) the folder by right-clicking on it, and then choosing <strong>Send to</strong> from the pop-up menu, then select <strong>Compressed folder</strong>. This will crate a new zipped folder identifiable by the little zipper on the folder icon. </p>
+<p><img src="program%20assignment%202_files/compress.gif" alt="compressing a folder" width="585" height="336"></p>
+<p>Then, attach the zipped folder to an email and send it to me.</p>
+<p class="bs-callout bs-callout-info">Please use your student email account rather than Blackboard email.</p>
+<p>Thanks...</p>
+<p>Again, if there are questions about this, let me know: mark.prather@kctcs.edu..<br>
+</p>
+</div> 
+<!-- end class=container -->
+
+
+
+
+
+</body></html>
