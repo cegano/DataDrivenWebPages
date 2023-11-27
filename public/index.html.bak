@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html><head><title>students</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ 
+ <script src="https://unpkg.com/vue@next"></script>
+<style>
+
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Our Website</a>
+    </div>
+    <div>
+       <ul class="nav navbar-nav">
+           <li class="active"><a id="menu1" href="/">Home</a></li>
+           <li><a id="menu3" href="edit.html" >Edit Student Data</a></li>
+       </ul>
+    </div>
+</div>
+</nav>    <!-- end nav-bar -->
+
+<div class="container">
+<h3>CIT 321 Students</h3>
+<div id = "studentsApp">     <!-- vue.js mounting location  -->
+
+	<div style='padding: 5px;'>    
+        <select  v-on:change="getData()" v-model='filter'>
+            <option value='all'>Get All Students</option>
+			<option value='CIT'>CIT</option>
+			<option value='WEB'>WEB</option>
+			<option value='EET'>EET</option>
+        </select> Select a Filter Option
+    </div>
+
+   
+      <div v-show="showTable">
+         <h2>Students</h2>
+         <table class="table table-bordered table-striped">
+            <tr>
+                <th>Student ID</th>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Major</th>
+                <th>Hours Attempted</th>
+				<th>GPA Points</th>
+                <th>GPA</th>
+            </tr>
+            <tr v-for = "student in student_list">
+                <td>{{student.sid}}</td>
+                <td>{{student.last_name}}</td>
+                <td>{{student.first_name}}</td>
+                <td>{{student.major}}</td>
+				<td>{{student.hrs_attempted}}</td>
+                <td>{{student.gpa_points}}</td>
+                <td>{{(student.gpa_points / student.hrs_attempted).toFixed(1)}}</td>
+            </tr>
+       </table>
+      </div>
+       
+   </div>   <!-- end carsApp -->
+
+
+   
+
+</div>   <!-- end class= 'container' -->
+
+<script src='/js/app.js'></script>  <!-- our app.js code  -->
+
+</body></html>

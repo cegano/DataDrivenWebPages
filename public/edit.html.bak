@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html><head><title>Student Data</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ 
+ <script src="https://unpkg.com/vue@next"></script>
+<style>
+
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Our Website</a>
+    </div>
+    <div>
+       <ul class="nav navbar-nav">
+           <li class="active"><a id="menu1" href="/">Home</a></li>
+           <li><a id="menu3" href="edit.html">Edit Student Data</a></li>
+       </ul>
+    </div>
+</div>
+</nav>   
+
+<div class="container">
+<h3>CIT 321 Edit Student Data</h3>
+
+	<div id = "editApp">    
+
+		<h4>Edit Car ID {{student.sid}} of {{maxIndex}}</h4>
+            
+            <div class="form-group">
+                <label for="sid">SID:</label>
+                <input type="text" class="form-control" id="sid" v-model="student.sid" readonly>
+           </div>
+			<div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" class="form-control" id="last_name" v-model="student.last_name" readonly>
+           </div>
+           <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" class="form-control" id="first_name" v-model="student.first_name" readonly>
+           </div>
+           <div class="form-group">
+                <label for="major">Major:</label>
+                <input type="text" class="form-control" id="major" v-model="student.major">
+           </div>
+		   <div class="form-group">
+                <label for="hrs_attempted">Hours Attempted:</label>
+                <input type="text" class="form-control" id="hrs_attempted" v-model="student.hrs_attempted">
+           </div>
+           <div class="form-group">
+                <label for="gpa_points">GPA Points:</label>
+                <input type="text" class="form-control" id="gpa_points" v-model="student.gpa_points">
+           </div>
+
+		   
+           <button type="button" class="btn btn-primary" v-on:click="previousRecord()"> < previous </button> &nbsp; 
+           <button type="button" class="btn btn-primary" v-on:click="nextRecord()"> next ></button> &nbsp; 
+           <button type="button" class="btn btn-primary" v-on:click="updateRecord()">Update</button> &nbsp;
+		   <!--<button type="button" class="btn btn-primary" v-on:click="deleteRecord()">Delete</button>-->
+        <br><br>
+
+       <p v-if='status'>{{status}} </p>
+		<br><br>
+   </div> 
+
+</div> 
+
+
+<script src='/js/app1.js'></script> 
+
+</body></html>

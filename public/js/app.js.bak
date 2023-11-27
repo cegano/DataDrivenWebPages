@@ -1,0 +1,24 @@
+   let app = Vue.createApp({
+      data() {     // returns an object of data
+         return {
+            student_list: [],           // array to hold student data
+            filter: '',
+            showTable: false,
+         }
+      },
+      methods: {    
+         async getData() {         // ajax request
+            this.showTable = true
+            
+			   url = '/getStudents?filter=' + this.filter
+            const response = await fetch(url)
+            this.student_list = await response.json()
+         },
+      }
+   })
+         
+   app.mount('#studentsApp')   //in which div to mount the vue app
+   
+   
+   
+  
