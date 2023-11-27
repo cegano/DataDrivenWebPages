@@ -1,0 +1,47 @@
+<!DOCTYPE html> <html> <head> <meta charset="utf-8">
+<title>Tax Calculator</title>
+<script type="text/javascript">
+	function getTax() {
+		var tax = "";
+		var income = document.getElementById("txtIncome").value;
+		
+		if (income >= 0 && income <= 27049) {
+			tax = (.15 * income);
+		}
+		
+		else if (income >= 27050 && income <= 65549) {
+			tax = 4057.50 + (.275 * (income - 27050));
+		}
+		
+		else if (income >= 65550 && income <= 136749) {
+			tax = 14654 + (.305 * (income - 65550));
+		}
+		
+		else if (income >= 136750 && income <= 297349) {
+			tax = 36361 + (.355 * (income - 136750));
+		}
+			
+		else if (income >= 297350) {
+			tax = 93374 + (.391 * (income - 297350));
+		}
+		
+		else {
+			window.alert("Income amount is out of range")
+			tax = "";
+		}
+		
+		tax = tax.toFixed(2);
+		
+		document.getElementById("xTax").innerHTML = "<strong> Tax owed: " +tax+"</strong>";
+	}
+	
+</script>
+</head><body> 
+<p>Tax Calculator</p>
+<form>
+<p><input type="text" id="txtIncome" size="10">Enter 2001 Income</p>
+<p><input type="button" value="Calculate Tax" onClick="getTax()"> 
+	<input type="reset" value="Clear"></p>
+<p id = "xTax">Tax amount owed</p>
+</form>
+</body></html>

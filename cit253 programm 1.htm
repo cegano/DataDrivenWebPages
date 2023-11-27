@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+
+	<title>cit253 programm 1</title>
+	<style>
+html,body{font-family:Verdana,sans-serif;font-size:15px;line-height:1.5}html{overflow-x:hidden}
+h1,h2,h3,h4,h5,h6,.w3-slim,.w3-wide{font-family:"Segoe UI",Arial,sans-serif}
+h1{font-size:36px}h2{font-size:30px}h3{font-size:24px}h4{font-size:20px}h5{font-size:18px}h6{font-size:16px}
+.w3-serif{font-family:"Times New Roman",Times,serif}
+h1,h2,h3,h4,h5,h6{font-weight:400;margin:10px 0}.w3-wide{letter-spacing:4px}
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{font-weight:inherit}
+hr{height:0;border:0;border-top:1px solid #eee;margin:20px 0}
+img{margin-bottom:-5px}a{color:inherit}
+table{border-collapse:collapse;border-spacing:0;width:100%;display:table}
+table,th,td{border:none}.w3-table-all{border:1px solid #ccc}
+.w3-bordered tr,.w3-table-all tr{border-bottom:1px solid #ddd}
+.w3-striped tbody tr:nth-child(even){background-color:#f1f1f1}
+.w3-table-all tr:nth-child(odd){background-color:#fff}
+.w3-table-all tr:nth-child(even){background-color:#f1f1f1}
+.w3-hoverable tbody tr:hover,.w3-ul.w3-hoverable li:hover{background-color:#ccc}
+.w3-centered tr th,.w3-centered tr td{text-align:center}
+.w3-table td,.w3-table th,.w3-table-all td,.w3-table-all th{padding:6px 8px;display:table-cell;text-align:left;vertical-align:top}
+.w3-table th:first-child,.w3-table td:first-child,.w3-table-all th:first-child,.w3-table-all td:first-child{padding-left:16px}
+
+.w3-badge{border-radius:50%}
+ul.w3-ul{list-style-type:none;padding:0;margin:0}
+ul.w3-ul li{padding:6px 2px 6px 16px;border-bottom:1px solid #ddd}
+ul.w3-ul li:last-child{border-bottom:none}
+.w3-tooltip,.w3-display-container{position:relative}
+.w3-fluid{max-width:100%;height:auto}
+.w3-tooltip .w3-text{display:none}
+.w3-tooltip:hover .w3-text{display:inline-block}
+
+
+
+/* .w3-code{font-family:Consolas,"courier new";font-size:16px;line-height:1.4;width:auto;background-color:#fff;padding:8px 12px;border-left:4px solid #009688;word-wrap:break-word} */
+
+.w3-code{font-family:Consolas,"courier new";font-size:16px;line-height:1.4;width:auto;background-color:#fff;padding:10px 12px;border-left:4px solid silver; word-wrap:break-word}
+
+.w3-example,.w3-code,.w3-reference{margin:20px 0}
+.w3-card{border:1px solid #ccc}
+.w3-card-2,.w3-example{box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important}
+.w3-card-4,.w3-hover-shadow:hover{box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)!important}
+.w3-card-8{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)!important}
+.w3-card-12{box-shadow:0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19)!important}
+.w3-card-16{box-shadow:0 16px 24px 0 rgba(0,0,0,0.22),0 25px 55px 0 rgba(0,0,0,0.21)!important}
+.w3-card-24{box-shadow:0 24px 24px 0 rgba(0,0,0,0.2),0 40px 77px 0 rgba(0,0,0,0.22)!important}
+
+
+iframe {margin-left: 25px;}
+.acode { margin-left: 30px; font-size:medium; font-family: Courier New, Courier, monospace; font-weight:500 }
+img {margin-left: 40px;}
+.codeLeft {font-size:medium; font-family: Courier New, Courier, monospace; font-weight:500}
+
+.aaStrings {color: maroon;}
+.aaComments {color: green;}
+.aaKeywords {color: blue;}
+pre {font-family: Consolas, "Lucida Console", Monaco, monospace; background-color:#EEE; padding-left: 20px;} 
+
+@media (min-width: 1200px) {
+  .w3-container {
+    width: 970px;
+  }
+}
+
+/* Base styles (regardless of theme) */
+.bs-callout {
+  margin: 20px 0;
+  padding: 15px 30px 15px 15px;
+  border-left: 5px solid #eee;
+}
+.bs-callout h4 {
+  margin-top: 0;
+}
+.bs-callout p:last-child {
+  margin-bottom: 0;
+}
+.bs-callout code,
+.bs-callout .highlight {
+  background-color: #fff;
+}
+
+/* Themes for different contexts */
+.bs-callout-danger {
+  background-color: #fcf2f2;
+  border-color: #dFb5b4;
+}
+.bs-callout-warning {
+  background-color: #fefbed;
+  border-color: #f1e7bc;
+}
+.bs-callout-info {
+  background-color: #f0f7fd;
+  border-color: #d0e3f0;
+}
+
+.bs-callout-danger h4 {
+color: #B94A48;
+}
+
+.bs-callout-warning h4 {
+color: #C09853;
+}
+
+.bs-callout-info h4 {
+color: #3A87AD;
+}
+
+</style>
+
+
+
+</head><body style="width: 80%; margin: 0 auto;">
+<div class="w3-container">
+
+        
+			<h2>Programming Project 1 (turn in for a grade)</h2>
+  <p><strong>Tax Table Program: Decision Blocks</strong></p>
+<p>Shown below is the 2001 Federal Income tax table for single taxpayers.&nbsp; This 
+program requires using If-blocks, so study the example programs in the notes on Decisions in order to get  
+a good idea of how to complete the program.</p>
+<p>The program should take an income value as input and calculate and 
+display the tax due. For example, your program interface might look 
+something like this (you have some latitude as to the appearance).</p>
+<p><img src="cit253%20programm%201_files/p2hint.GIF" alt="example tax calculation" width="382" hspace="30" height="191"></p>
+<p>Note the lack of dollar signs and commas in the numbers in the above 
+display. The tax calculation is based on the following table.</p>
+<table class="w3-table-all">
+  <tbody><tr>
+    <td width="18%"><b>Taxable Income From</b></td>
+    <td width="19%"><b>Up to but not including</b></td>
+    <td width="38%"><b>Tax is</b></td>
+  </tr>
+  <tr>
+    <td width="18%">0</td>
+    <td width="19%">$27,050</td>
+    <td width="38%">15% of the income</td>
+  </tr>
+  <tr>
+    <td width="18%">$27,050</td>
+    <td width="19%">$65,550</td>
+    <td width="38%">$4,057.50 + (27.5% of the amount over $27,050)</td>
+  </tr>
+  <tr>
+    <td width="18%">$65,550</td>
+    <td width="19%">$136,750</td>
+    <td width="38%">$14,654.00 + (30.5% of the amount over $65,550)</td>
+  </tr>
+  <tr>
+    <td width="18%">$136,750</td>
+    <td width="19%">$297,350</td>
+    <td width="38%">$36,361.00 + (35.5% of the amount over $136,750)</td>
+  </tr>
+  <tr>
+    <td width="18%">$297,350 and up</td>
+    <td width="19%">&nbsp;</td>
+    <td width="38%">$93,374.00 + (39.1% of the amount over $297,350)</td>
+  </tr>
+</tbody></table>
+<p>For example, if a single person's income is $70,000, then the tax calculation 
+for tax owed would be:</p>
+<p class="codeLeft">&nbsp;&nbsp;&nbsp;14654.00 + (.305 * (70000 - 65550)) = 16011.25</p>
+<p>No  dollar signs or commas should be used in the numbers of the above calculation.</p>
+<p class="box"><strong>Important</strong>. JavaScript numbers cannot 
+have non-numeric characters in them and still be treated as a number. So
+ although the table above uses commas and dollar signs to display the 
+number, JavaScript will treat something like $36,361.00 as  text, not a 
+number. To do  arithmetic any calculation or comparison using JavaScript
+ needs to use raw numbers, like 36361.00. </p>
+<p>Don't use commas or dollar signs in your program. Assuming the variable named <em>income</em> holds a number, then this will work:</p>
+<p class="w3-code">if(income &lt; 15000)</p>
+<p>but this will not</p>
+<p class="w3-code">if(income &lt; $15,000)</p>
+<p>If you want to format a number, do it just before it is displayed, after any comparisons or calculations have been performed.</p>
+<p>Write a program using if-blocks&nbsp; that allows the 
+  user to input a taxable income value into a text box, and after clicking a 
+  button the tax is calculated and displayed in another text box.&nbsp; Write a 
+  function to do the tax calculation.&nbsp; The answer should be rounded to 2 
+  decimal places.&nbsp; 
+  Your program should calculate the correct tax no matter what the income range.&nbsp; 
+  Use an IF-block to make this work.</p>
+<p>When finished, attach the file to an email and send it to me.&nbsp; <em>Also</em>, please copy and paste the source code into the body of the email. If you have 
+trouble with this before the due date, send it to me and I will be glad to make 
+suggestions (but don't wait until late Sunday night).&nbsp; As a hint, look back at the program that calculates letter 
+grades (<a href="https://alt-5beddfe10b70f.blackboard.com/bbcswebdav/pid-48044123-dt-content-rid-352812465_2/courses/JFC_4226_CIT_253_55Z1_83624/JFC_4226_CIT_253_55Z1_83624_ImportedContent_20230104111505/CIT253programs/gradeCalculator.html">gradeCalculator</a>) in the examples for the week discussing decisions.</p>
+<p>In newer versions of JavaScript you can round a number to 2 decimal places using the toFixed() method. If the variable <em>tax</em> holds an unrounded number, you can round to 2 decimal places with the following line:</p>
+<p class="w3-code">tax = tax<strong>.</strong>toFixed(2)</p>
+<p>where the 2 in parenthesis is the number of decimal places to be 
+rounded to.  JavaScript is case sensitive, so if you use toFixed(), make
+ sure to spell it correctly.</p>
+<p>When everything works, attach the html document to and email, paste 
+the source code into the body of the email, and send it to me. </p>
+<p class="bs-callout bs-callout-info">Please use your student email account rather than Blackboard email.</p>
+<p>As I said, if you get stuck, attached your code to an email and send it to me. I'll be glad to help.<br>
+</p>
+
+            
+            
+		</div> <!-- end content -->
+
+
+
+
+</body></html>
