@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+
+	<title>program 3</title>
+	
+        
+<style>
+html,body{font-family:Verdana,sans-serif;font-size:15px;line-height:1.5}html{overflow-x:hidden}
+h1,h2,h3,h4,h5,h6,.w3-slim,.w3-wide{font-family:"Segoe UI",Arial,sans-serif}
+h1{font-size:36px}h2{font-size:30px}h3{font-size:24px}h4{font-size:20px}h5{font-size:18px}h6{font-size:16px}
+.w3-serif{font-family:"Times New Roman",Times,serif}
+h1,h2,h3,h4,h5,h6{font-weight:400;margin:10px 0}.w3-wide{letter-spacing:4px}
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{font-weight:inherit}
+hr{height:0;border:0;border-top:1px solid #eee;margin:20px 0}
+img{margin-bottom:-5px}a{color:inherit}
+table{border-collapse:collapse;border-spacing:0;width:100%;display:table}
+table,th,td{border:none}.w3-table-all{border:1px solid #ccc}
+.w3-bordered tr,.w3-table-all tr{border-bottom:1px solid #ddd}
+.w3-striped tbody tr:nth-child(even){background-color:#f1f1f1}
+.w3-table-all tr:nth-child(odd){background-color:#fff}
+.w3-table-all tr:nth-child(even){background-color:#f1f1f1}
+.w3-hoverable tbody tr:hover,.w3-ul.w3-hoverable li:hover{background-color:#ccc}
+.w3-centered tr th,.w3-centered tr td{text-align:center}
+.w3-table td,.w3-table th,.w3-table-all td,.w3-table-all th{padding:6px 8px;display:table-cell;text-align:left;vertical-align:top}
+.w3-table th:first-child,.w3-table td:first-child,.w3-table-all th:first-child,.w3-table-all td:first-child{padding-left:16px}
+
+.w3-badge{border-radius:50%}
+ul.w3-ul{list-style-type:none;padding:0;margin:0}
+ul.w3-ul li{padding:6px 2px 6px 16px;border-bottom:1px solid #ddd}
+ul.w3-ul li:last-child{border-bottom:none}
+.w3-tooltip,.w3-display-container{position:relative}
+.w3-fluid{max-width:100%;height:auto}
+.w3-tooltip .w3-text{display:none}
+.w3-tooltip:hover .w3-text{display:inline-block}
+
+
+
+/* .w3-code{font-family:Consolas,"courier new";font-size:16px;line-height:1.4;width:auto;background-color:#fff;padding:8px 12px;border-left:4px solid #009688;word-wrap:break-word} */
+
+.w3-code{font-family:Consolas,"courier new";font-size:16px;line-height:1.4;width:auto;background-color:#fff;padding:10px 12px;border-left:4px solid silver; word-wrap:break-word}
+
+.w3-example,.w3-code,.w3-reference{margin:20px 0}
+.w3-card{border:1px solid #ccc}
+.w3-card-2,.w3-example{box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important}
+.w3-card-4,.w3-hover-shadow:hover{box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)!important}
+.w3-card-8{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)!important}
+.w3-card-12{box-shadow:0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19)!important}
+.w3-card-16{box-shadow:0 16px 24px 0 rgba(0,0,0,0.22),0 25px 55px 0 rgba(0,0,0,0.21)!important}
+.w3-card-24{box-shadow:0 24px 24px 0 rgba(0,0,0,0.2),0 40px 77px 0 rgba(0,0,0,0.22)!important}
+
+
+iframe {margin-left: 25px;}
+.acode { margin-left: 30px; font-size:medium; font-family: Courier New, Courier, monospace; font-weight:500 }
+img {margin-left: 40px;}
+.codeLeft {font-size:medium; font-family: Courier New, Courier, monospace; font-weight:500}
+
+.aaStrings {color: maroon;}
+.aaComments {color: green;}
+.aaKeywords {color: blue;}
+pre {font-family: Consolas, "Lucida Console", Monaco, monospace; background-color:#EEE; padding-left: 20px;} 
+
+@media (min-width: 1200px) {
+  .w3-container {
+    width: 970px;
+  }
+}
+
+/* Base styles (regardless of theme) */
+.bs-callout {
+  margin: 20px 0;
+  padding: 15px 30px 15px 15px;
+  border-left: 5px solid #eee;
+}
+.bs-callout h4 {
+  margin-top: 0;
+}
+.bs-callout p:last-child {
+  margin-bottom: 0;
+}
+.bs-callout code,
+.bs-callout .highlight {
+  background-color: #fff;
+}
+
+/* Themes for different contexts */
+.bs-callout-danger {
+  background-color: #fcf2f2;
+  border-color: #dFb5b4;
+}
+.bs-callout-warning {
+  background-color: #fefbed;
+  border-color: #f1e7bc;
+}
+.bs-callout-info {
+  background-color: #f0f7fd;
+  border-color: #d0e3f0;
+}
+
+.bs-callout-danger h4 {
+color: #B94A48;
+}
+
+.bs-callout-warning h4 {
+color: #C09853;
+}
+
+.bs-callout-info h4 {
+color: #3A87AD;
+}
+
+</style>
+
+
+
+</head><body style="width: 80%; margin: 0 auto;">
+<div class="w3-container">        
+	
+<h2>Programming Project 3 (turn in for a grade)</h2>
+<h4>Node.js and Express &amp; NunjucksTemplates</h4>
+<p>There is a program similar to this assignment given as the last 
+example in the lecture notes for the week that discusses node static 
+files.   <em>This program will take more time that previous assignments</em>. So, hopefully you'll start early and you've kept to the schedule in terms of reading the lecture notes.</p>
+<p>The pseudo-company is called Sun or Fun, which offers cheap flights from Louisville to either Miami or Vegas.</p>
+<p>Here's a video of how it should work. A detailed description of program requirements is given below.</p>
+<p><strong><u>NOTE:</u></strong> For years we used Handlebars for 
+templating; not anymore, Handlebars broke our code. We now use Nunjucks.
+ You may hear or see references to Handlebars in text or videos, but it 
+will be <strong>Nunjucks</strong> that we should be using for our templates. </p>
+<p><iframe src="program%203_files/6wgQ3NyL3xI.htm" allow="autoplay; encrypted-media" allowfullscreen="" width="560" height="315" frameborder="0"></iframe></p>
+<p>Your node.js program will require 3 pages: a welcome page, a data 
+display page containing a HTML form, and a summary page. Each of the 3 
+pages will require an express-handlebars template that is to be 
+substituted into the main layout. To get full credit, your program will 
+also need the following features.</p>
+<ol>
+  <li>a main.handlebars layout containing a Bootstrap nav bar in the 
+header and a generic footer that will display in each of the 3 pages. 
+The nav bar should contain a logo-image, and that image should be 
+retrieved from the public/images folder using static files. You can get 
+the logo image from the link near the end of the page, or you can make 
+your own.</li>
+  <li>the nav bar should contain 2 links, one to the welcome page, and one to the data-display page.</li>
+  <li>the body of the welcome page should display the image of an 
+airplane that you provide, originating in the public/images folder using
+ static files. if the image requires attribution, include the info for 
+where the image came from.</li>
+  <li>the data display page should take the provided array of flight 
+info objects (shown below), and using Nunjucks repetition methods, 
+generate and display a Bootstrap html table of the data when the page 
+loads.</li>
+  <li>the data display page will also need an html form that uses the 
+post method. The form should have  2 text boxes, a drop down list with 3
+ choices, a set of 3 radio button each with the same name, and a submit 
+button. An image is shown below. </li>
+  <li>The form tag containing the submit button should have an action 
+attribute that points to a route in index.js that retrieves the form 
+data, then displays a summary of that data on the summary page.</li>
+  <li>The main.handlebars template should have a {{page_title}} thing so
+ that we can substitute the right title for each of the pages we 
+display. So the <em>welcome</em> page should display the proper title to the user, the <em>data-display</em> page should display a proper page title, and so on.</li>
+</ol>
+<p>Here's your list of files and folders for this project.</p>
+<ul>
+  <li> you'll need to install express, body-parser, and express-handlebars.</li>
+  <li>you'll need 3 regular templates in the views folder and a master template in the layouts folder. </li>
+  <li>a public folder with an images subfolder to hold your airplane pic and the logo</li>
+  <li> an index.js file, and a package.json file.</li>
+</ul>
+<p>Here are a couple of images of the pages. Your pages do not need to 
+be styled like mine, but they should contain the same basic information.
+ Here is my welcome page, which is the default route.</p>
+<p><img src="program%203_files/p3-welcome.JPG" alt="welcome page" width="566" height="330"></p>
+<p>Here is the data display page, reached by clicking the 'Pick a Flight' link in the nav bar.</p>
+<p><img src="program%203_files/p3-flights.JPG" alt="data display" width="607" height="765"></p>
+<p>And here is a summary example.</p>
+<p><img src="program%203_files/p3-summary.JPG" alt="summary page" width="398" height="322"></p>
+<p>Here is the array of flight info objects. Please use it as-is.</p>
+<p class="w3-code">var schedule = [<br>
+{flight: 1212, origin: "SDF 7:00am", destination: "MIA 9:50am"},<br>
+{flight: 4505, origin: "SDF 7:20am", destination: "LAS 8:30am"},<br>
+{flight: 2212, origin: "SDF 10:00am", destination: "MIA 12:50pm"},<br>
+{flight: 5505, origin: "SDF 11:20am", destination: "LAS 12:30pm"}<br>
+];</p>
+<p>Here is a link to the logo: <a href="https://alt-5beddfe10b70f.blackboard.com/bbcswebdav/pid-48045654-dt-content-rid-352812467_2/courses/JFC_4226_CIT_253_55Z1_83624/JFC_4226_CIT_253_55Z1_83624_ImportedContent_20230104111505/CIT253programs/p3-logo.jpg">program3logo.jpg</a></p>
+<h3>How to Submit This Program</h3>
+<p>When you are finished or if you have trouble, do the following. 
+</p><ul>
+  <li>make a <em>copy</em> of the whole project folder.</li>
+  <li>in the copy, delete the <em>node-modules</em> folder (it's big),<em> but leave the package.json file in the  folder.</em></li>
+  <li>then right-click the folder, choose 'Send to', then choose "Compressed (zipped) folder". </li>
+  <li>attach the zipped folder  to an email and send it to me.</li>
+</ul>
+<p class="bs-callout bs-callout-info">Please use your student email account rather than Blackboard email.</p>
+<p>Let me know if you have questions.	  
+
+  <br>
+</p></div> <!-- end content -->
+
+    
+
+
+
+
+</body></html>

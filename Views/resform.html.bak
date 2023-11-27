@@ -1,0 +1,34 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+	<h3>Daily Flights: All times are local</h3>
+	<p>Airport Codes: SDF is Louisville, MIA is Miami, LAS is Las Vegas.</p>
+	
+	<table class="table">
+		<tr><th>Flight Number</th><th>Depart</th><th>Arrive</th></tr>
+			{% for info in schedule %}
+				<tr><td>{{info.flight}}</td><td>{{info.origin}}</td><td>{{info.destination}}</td></tr>
+			{% endfor %}
+	</table>
+	
+	<form method="post" action="handleform">
+		<p><input type="text" name="fullname" placeholder="Enter full name">Enter full name</p>
+		<p><input type="text" name="flight" placeholder="Enter flight number">Enter flight number</p>
+		
+		<p>Seating Preference<br>
+		<select name="seating">
+			<option value="coach">Coach</option>
+			<option value="business">Business</option>
+			<option value="first class">First Class</option>
+		</select></p>
+		
+		<p>Meal Preference<br>
+		<input type="radio" name="meal" value="Beef" checked>Beef<br>
+		<input type="radio" name="meal" value="Chicken">Chicken<br>
+		<input type="radio" name="meal" value="Vegan">Vegan</p>
+		
+		<p><button type="submit">Submit Form</button></p>
+	</form>
+	
+{% endblock %}
