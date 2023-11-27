@@ -1,0 +1,61 @@
+<html>
+<head><title>crud intro</title>
+</head><body>
+<h3>cars4sale database CRUD operations</h3>
+<div>
+  <p>Show All Cars.</p>
+  <form method='post' action="/showAll">
+     <p><input type="submit" value="Display All Items"> </p>
+  </form>
+  <hr>
+</div>
+<div>
+  <p>Add New Car to cars4sale DB</p>
+  <form method='post' action="/addCar">
+    <p><input type="text" name="carCid" > Car ID </p>
+     <p><input type="text" name="carYear" > Year </p>
+     <p><input type="text" name="carMake" > Make </p>
+     <p><input type="text" name="carModel" > Model </p>
+     <p><input type="text" name="carMiles" > Miles </p>
+     <p><input type="text" name="carPrice" > Asking Price </p>
+     <p><input type="text" name="carDealer_id" > Dealer ID </p>
+     <p><input type="submit" value="Add New Car"> </p>
+  </form>
+  <hr>
+</div>
+<div>
+  <p>Find a car by its CID.</p>
+  <form method='post' action="/findCar">
+     <p><input type="text" name="carCid" > Car ID number </p>
+     <p><input type="submit" value="Find Car"> </p>
+  </form>
+  <hr>
+</div>
+<div>
+  <p>Edit Both the Car's Miles and Price</p>
+  <form method='post' action="/updateCar">
+     <p><input type="text" name="carCid" > Car ID </p>
+     <p><input type="text" name="carMiles" > Miles </p>
+     <p><input type="text" name="carPrice" > Price </p>
+     <p><input type="submit" value="Edit Car Data"> </p>
+  </form>
+  <hr>
+</div>
+<div>
+  <p>Delete Car from DB (has been sold)</p>
+  <form method='post' action="/deleteCar">
+     <p><input type="text" name="cid" > Car ID </p>
+     <p><input type="submit" value="Delete Car"> </p>
+  </form>
+  <hr>
+</div>
+
+<!--<div>
+  <p>Add a bunch of items: do this only once.</p>
+  <form method='post' action="/addMany">
+     <p><input type="submit" value="Add Several Items"> </p>
+  </form>
+  <hr>
+</div>-->
+
+</body></html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+
+	<title>CIT253 program 4</title>
+	
+        
+<style>
+html,body{font-family:Verdana,sans-serif;font-size:15px;line-height:1.5}html{overflow-x:hidden}
+h1,h2,h3,h4,h5,h6,.w3-slim,.w3-wide{font-family:"Segoe UI",Arial,sans-serif}
+h1{font-size:36px}h2{font-size:30px}h3{font-size:24px}h4{font-size:20px}h5{font-size:18px}h6{font-size:16px}
+.w3-serif{font-family:"Times New Roman",Times,serif}
+h1,h2,h3,h4,h5,h6{font-weight:400;margin:10px 0}.w3-wide{letter-spacing:4px}
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{font-weight:inherit}
+hr{height:0;border:0;border-top:1px solid #eee;margin:20px 0}
+img{margin-bottom:-5px}a{color:inherit}
+table{border-collapse:collapse;border-spacing:0;width:100%;display:table}
+table,th,td{border:none}.w3-table-all{border:1px solid #ccc}
+.w3-bordered tr,.w3-table-all tr{border-bottom:1px solid #ddd}
+.w3-striped tbody tr:nth-child(even){background-color:#f1f1f1}
+.w3-table-all tr:nth-child(odd){background-color:#fff}
+.w3-table-all tr:nth-child(even){background-color:#f1f1f1}
+.w3-hoverable tbody tr:hover,.w3-ul.w3-hoverable li:hover{background-color:#ccc}
+.w3-centered tr th,.w3-centered tr td{text-align:center}
+.w3-table td,.w3-table th,.w3-table-all td,.w3-table-all th{padding:6px 8px;display:table-cell;text-align:left;vertical-align:top}
+.w3-table th:first-child,.w3-table td:first-child,.w3-table-all th:first-child,.w3-table-all td:first-child{padding-left:16px}
+
+.w3-badge{border-radius:50%}
+ul.w3-ul{list-style-type:none;padding:0;margin:0}
+ul.w3-ul li{padding:6px 2px 6px 16px;border-bottom:1px solid #ddd}
+ul.w3-ul li:last-child{border-bottom:none}
+.w3-tooltip,.w3-display-container{position:relative}
+.w3-fluid{max-width:100%;height:auto}
+.w3-tooltip .w3-text{display:none}
+.w3-tooltip:hover .w3-text{display:inline-block}
+
+
+
+/* .w3-code{font-family:Consolas,"courier new";font-size:16px;line-height:1.4;width:auto;background-color:#fff;padding:8px 12px;border-left:4px solid #009688;word-wrap:break-word} */
+
+.w3-code{font-family:Consolas,"courier new";font-size:16px;line-height:1.4;width:auto;background-color:#fff;padding:10px 12px;border-left:4px solid silver; word-wrap:break-word}
+
+.w3-example,.w3-code,.w3-reference{margin:20px 0}
+.w3-card{border:1px solid #ccc}
+.w3-card-2,.w3-example{box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important}
+.w3-card-4,.w3-hover-shadow:hover{box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)!important}
+.w3-card-8{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)!important}
+.w3-card-12{box-shadow:0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19)!important}
+.w3-card-16{box-shadow:0 16px 24px 0 rgba(0,0,0,0.22),0 25px 55px 0 rgba(0,0,0,0.21)!important}
+.w3-card-24{box-shadow:0 24px 24px 0 rgba(0,0,0,0.2),0 40px 77px 0 rgba(0,0,0,0.22)!important}
+
+
+iframe {margin-left: 25px;}
+.acode { margin-left: 30px; font-size:medium; font-family: Courier New, Courier, monospace; font-weight:500 }
+img {margin-left: 40px;}
+.codeLeft {font-size:medium; font-family: Courier New, Courier, monospace; font-weight:500}
+
+.aaStrings {color: maroon;}
+.aaComments {color: green;}
+.aaKeywords {color: blue;}
+pre {font-family: Consolas, "Lucida Console", Monaco, monospace; background-color:#EEE; padding-left: 20px;} 
+
+@media (min-width: 1200px) {
+  .w3-container {
+    width: 970px;
+  }
+}
+
+/* Base styles (regardless of theme) */
+.bs-callout {
+  margin: 20px 0;
+  padding: 15px 30px 15px 15px;
+  border-left: 5px solid #eee;
+}
+.bs-callout h4 {
+  margin-top: 0;
+}
+.bs-callout p:last-child {
+  margin-bottom: 0;
+}
+.bs-callout code,
+.bs-callout .highlight {
+  background-color: #fff;
+}
+
+/* Themes for different contexts */
+.bs-callout-danger {
+  background-color: #fcf2f2;
+  border-color: #dFb5b4;
+}
+.bs-callout-warning {
+  background-color: #fefbed;
+  border-color: #f1e7bc;
+}
+.bs-callout-info {
+  background-color: #f0f7fd;
+  border-color: #d0e3f0;
+}
+
+.bs-callout-danger h4 {
+color: #B94A48;
+}
+
+.bs-callout-warning h4 {
+color: #C09853;
+}
+
+.bs-callout-info h4 {
+color: #3A87AD;
+}
+
+</style>
+
+
+
+</head><body style="width: 80%; margin: 0 auto;">
+<div class="w3-container">        
+	
+<h2>Programming Project 4 </h2>
+<h4>Node.js, Express.js, MongoDB, and Mongoose: Create, Read, Update, and Delete Operations</h4>
+<p>There is a program similar to this assignment given as the last 
+example, CRUD, in the lecture notes for the week that discusses the 
+introduction to MongoDB.   Basically, you need to adapt this example 
+program to the data given in this assignment. </p>
+<p><em>This program will take more time that previous assignments</em>. So, hopefully you'll start early and you've kept to the schedule in terms of reading the lecture notes.</p>
+<p>For this program to create the database we are just going to create a
+ Mongoose model and run that from index.js. Later in these note we have a
+ link to the index.html page that has the HTML forms. Once your program 
+successfuly runs index.js and instantiates the model, your database is 
+created. Once the database is created, you need to perfect the addCare 
+route so you can add data using the index.html page.</p>
+<p><iframe src="CIT253%20program%204_files/ewd_9tx3_v0.htm" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" width="560" height="315" frameborder="0"></iframe></p>
+<p>Here is a second video on how it should all work once everything is 
+complete. The video will make more sense if you have examined the CRUD 
+example mentioned above before viewing the video.</p>
+<p><iframe src="CIT253%20program%204_files/P07xXLdNsN4.htm" allow="autoplay; encrypted-media" allowfullscreen="" width="854" height="480" frameborder="0"></iframe></p>
+<p>Here is a link to the zipped index.html page you need to use: <a href="https://alt-5beddfe10b70f.blackboard.com/bbcswebdav/pid-48045678-dt-content-rid-352812468_2/courses/JFC_4226_CIT_253_55Z1_83624/JFC_4226_CIT_253_55Z1_83624_ImportedContent_20230104111505/CIT253programs/index.zip">index.zip</a>.
+ You will need to make sure this file is named index.html, and it needs 
+to be put in your public folder and be displayed when the user types in 
+the default route of localhost:3000.</p>
+<p class="w3-code">This program does not require express-handlebars. We don't need templates here.</p>
+
+<h3>Requirements for full credit</h3>
+<ul>
+  <li>You need to have mongoDB installed and running to develop this program. The database needs to be named <em>cars4sale</em>. The db name is set up in the connection string in the model used by your program.</li>
+  <li>Your project folder needs to have express, body-parser, and mongoose installed.</li>
+  <li>You need to use static files to serve the provided index.html file for the default route "/".</li>
+  <li>You will need a modules folder that contains a mongoose model named <em>Car.js</em>,
+ and you will need to require this model in your index.js file. As you 
+know, after setting up the model, the first time you run the program the
+ connection string in the model will automatically create a database 
+named cars4sale in mongodb. The collection will automatically be 
+pluralized and  named lower case 'c' cars.</li>
+  <li>Your Car model needs the following properties for the schema, spelled exactly like this, using the given data types
+    <ul>
+      <li>cid: Number, unique</li>
+      <li>year: Number</li>
+      <li>make: String</li>
+      <li>model: String</li>
+      <li>miles: Number</li>
+      <li>price: Number</li>
+      <li>dealer_id: String  </li>
+    </ul>
+  </li>
+</ul>
+<p><strong>HINT</strong>: Your first priority should be to set up the 
+ability to add car documents to the database using the index.html page 
+provided above. This can be checked using the mongo shell or by getting 
+the show-all route working as well. Get this program working piece at a 
+time rather than typing it all in at once. I strongly recommend getting 
+the model correct, and the <em>show all</em> route and the <em>add-a-car</em> route working first, <strong>before</strong>
+ adding any code for the remaining tasks. Once you can add documents to 
+the database and display the results it will be easier to add and 
+troubleshoot the code for the remaining tasks. But if you can't add a 
+document to the database, you certainly cannot troubleshoot how to edit a
+ document. And errors in the edit route may prevent you from getting the
+ add-a-car route working.</p>
+<p>When I run your program after starting up my database with mongod.exe, I should be able to run your index.js file and...</p>
+<ul>
+  <li>print all the info on all the cars, </li>
+  <li>I should be able to add a car to my database, (create)</li>
+  <li>I should be able to find a car by entering its ID number and print
+ a few properties of that car, like cid, make, and miles (read) </li>
+  <li>I should be able to edit the miles and price properties of a car by selecting the car by ID, (update)</li>
+  <li>and I should be able to delete a car using its ID. (delete)</li>
+</ul>
+<h3>How to Submit This Program</h3>
+<p>When you are finished or if you have trouble, do the following. 
+</p><ul>
+  <li>make a <em>copy</em> of the whole project folder.</li>
+  <li>in the copy, delete the <em>node-modules</em> folder (it's big),<em> but leave the package.json file in the that folder.</em></li>
+  <li>then right-click the folder, choose 'Send to', then choose "Compressed (zipped) folder". </li>
+  <li>attach the zipped folder  to an email and send it to me. </li>
+</ul>
+<p>Let me know if you have questions.	  
+
+  <br>
+</p></div> <!-- end content -->
+
+    
+
+
+
+
+</body></html>
